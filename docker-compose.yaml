@@ -1,0 +1,31 @@
+version: "3.1"
+
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:5.7.34
+    volumes:
+      - ./data/mysql/data:/var/lib/mysql
+      - ./data/mysql/conf/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+  seata-server:
+    container_name: seata-server
+    image: seataio/seata-server:1.4.1
+    hostname: seata-server
+    ports:
+      - 8091:8091
+    environment:
+      - SEATA_PORT=8091
+    depends_on:
+      - mysql
+  maxwell:
+    container_name: maxwell
+    image: zendesk/maxwell:v1.33.0
+    restart: on-failure
+    entrypoint: ["bin/maxwell", "--user=root", "--password=", "--host=mysql", "--producer=stdout"]
+    depends_on:
+      - mysql
+      - seata-server
