@@ -2,7 +2,7 @@ version := "0.1"
 
 val scala212Version = "2.12.13"
 
-val seataVersion = "1.4.1"
+val seataVersion = "1.4.2"
 
 val playSlickVersion = "5.0.0"
 

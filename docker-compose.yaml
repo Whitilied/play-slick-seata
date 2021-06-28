@@ -13,7 +13,7 @@ services:
       - MYSQL_ALLOW_EMPTY_PASSWORD=true
   seata-server:
     container_name: seata-server
-    image: seataio/seata-server:1.4.1
+    image: seataio/seata-server:1.4.2
     hostname: seata-server
     ports:
       - 8091:8091

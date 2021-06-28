@@ -89,7 +89,7 @@ CREATE TABLE seata_pay.undo_log
   AUTO_INCREMENT = 1
   DEFAULT CHARSET = utf8;
 INSERT INTO seata_pay.account (id, balance)
-VALUES (1, 1);
+VALUES (1, 10);
 
 SELECT auto_increment
 FROM information_schema.TABLES

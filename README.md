@@ -15,7 +15,7 @@ docker-compose up -d
 entry mysql cli (password is empty) 
 
 ```bash
-docker exec -it mysql mysql -uroot -p
+docker exec -it mysql mysql -uroot
 
 ```
 
